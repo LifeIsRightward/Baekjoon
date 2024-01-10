@@ -19,7 +19,7 @@ int main() {
       floor = H;
     }
 
-    roomNum = (N / H) + 1;
+    roomNum = ((N - 1) / H) + 1;
 
     if (roomNum < 10) {
       cout << to_string(floor) + "0" + to_string(roomNum) << "\n";
