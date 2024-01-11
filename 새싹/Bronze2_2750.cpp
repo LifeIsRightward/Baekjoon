@@ -7,11 +7,12 @@ int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  vector<int> vec;
-  int N, temp = 0;
+  vector<long long> vec;
+  long long N = 0;
+  int temp = 0;
 
   cin >> N;
-  for (int i = 0; i < N; i++) {
+  for (long long i = 0; i < N; i++) {
     cin >> temp;
     vec.push_back(temp);
   }
