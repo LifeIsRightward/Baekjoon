@@ -63,6 +63,8 @@
     "*.tcc": "cpp",
     "deque": "cpp",
     "queue": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "__tree": "cpp",
+    "map": "cpp"
   }
 }
