@@ -11,7 +11,7 @@ int main() {
 
   unsigned long long N = 0;
   int temp = 0;
-  double diff = 0;
+  double diff = 0;  // 난이도
   int trimmed = 0;  // 절사평균 반올림 값
   vector<int> vec;
   cin >> N;
