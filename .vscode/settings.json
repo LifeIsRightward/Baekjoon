@@ -66,6 +66,9 @@
     "stack": "cpp",
     "__tree": "cpp",
     "map": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "memory_resource": "cpp",
+    "utility": "cpp",
+    "fstream": "cpp"
   }
 }
