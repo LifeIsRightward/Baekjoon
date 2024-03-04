@@ -23,7 +23,7 @@ void bfs(int startN) {
     int list = 1;
     while (!q.empty()) {
         int cur = q.front();
-        order[list] = cur;
+        order[cur] = list;
         list++;
         q.pop();
 
@@ -57,7 +57,6 @@ int main() {
 
     bfs(startnode);
 
-    cout << "\n";
     for (int i = 1; i <= nodes; i++) {
         if (visited[i]) {
             sum += depth[i] * order[i];
@@ -65,6 +64,7 @@ int main() {
             // cout << order[i] << "\n";
         } else {
             sum += -1 * order[i];
+            // cout << depth[i] << " " << order[i] << "\n";
             // cout << order[i] << "\n";
         }
     }
