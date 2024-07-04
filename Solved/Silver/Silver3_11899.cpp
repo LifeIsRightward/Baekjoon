@@ -7,30 +7,30 @@
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
-    // ¿©´Â °ýÈ£¸¸ '(' ½ºÅÃ¿¡ ÀúÀå
-    stack<char> stk;
-    queue<char> q;
-    string str;
-    cin >> str;
+  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ '(' ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+  stack<char> stk;
+  queue<char> q;
+  string str;
+  cin >> str;
 
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '(') {
-            stk.push('(');
-        } else {
-            if (!stk.empty()) {
-                stk.pop();
-            } else {
-                // Â¦ÀÌ ¾ø´Â ´ÝÈù °ýÈ£ -> Å¥ ¿¡ Ãß°¡(³ªÁß¿¡ »çÀÌÁî·Î ¾Ë¾Æº¼°ÅÀÓ)
-                q.push(str[i]);
-            }
-        }
+  for (int i = 0; i < str.length(); i++) {
+    if (str[i] == '(') {
+      stk.push('(');
+    } else {
+      if (!stk.empty()) {
+        stk.pop();
+      } else {
+        // Â¦ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ -> Å¥ ï¿½ï¿½ ï¿½ß°ï¿½(ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æºï¿½ï¿½ï¿½ï¿½ï¿½)
+        q.push(str[i]);
+      }
     }
+  }
 
-    // stk.size()´Â ¿­¸°°ýÈ¥µ¥, ¼ø¼­»ó ¸ÂÁö ¾Ê¾Æ¼­ Â¦ÀÌ ¾ø¾ú´ø ¾Öµé
-    // q.size()´Â ´ÝÈù°ýÈ¥µ¥, ¼ø¼­»ó ¸ÂÁö ¾Ê¾Æ¼­ Â¦ÀÌ ¾ø¾ú´ø ¾Öµé
-    cout << q.size() + stk.size();
-    return 0;
+  // stk.size()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ Â¦ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Öµï¿½
+  // q.size()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ Â¦ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Öµï¿½
+  cout << q.size() + stk.size();
+  return 0;
 }
