@@ -7,8 +7,8 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    int n = 0;
+    // 시발 long long 안써서 틀림 ㅜ
+    long long n = 0;
 
     cin >> n;
 
@@ -19,9 +19,3 @@ int main() {
     }
     return 0;
 }
-
-// a = int(input())
-// if a % 2 == 0:
-//     print('CY')
-// else:
-//     print('SK')
