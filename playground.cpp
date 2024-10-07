@@ -13,29 +13,13 @@ using namespace std;
 int main() {
     fastIo;
 
-    int T;
-    cin >> T;
+    string str;
 
-    for (int t = 1; t <= T; ++t) {
-        int N;
-        cin >> N;
+    cin >> str;
 
-        set<int> seen;
-        int cnt = 0;
-        int crtnum = 0;
+    for (auto a : str) {
 
-        while (seen.size() < 10) {
-            cnt++;
-            crtnum = N * cnt;
-
-            int tmp = crtnum;
-            while (tmp > 0) {
-                seen.insert(tmp % 10);
-                tmp /= 10;
-            }
-        }
-
-        cout << "#" << t << " " << crtnum << endl;
+        cout << a - 'A' + 1 << " ";
     }
 
     return 0;
