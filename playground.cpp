@@ -5,22 +5,21 @@
 #include <vector>
 using namespace std;
 
-#define fastIo                                                                                                                                                 \
-    ios_base::sync_with_stdio(false);                                                                                                                          \
-    cin.tie(NULL);                                                                                                                                             \
-    cout.tie(NULL);
+#define fastIo                      \
+  ios_base::sync_with_stdio(false); \
+  cin.tie(NULL);                    \
+  cout.tie(NULL);
 
 int main() {
-    fastIo;
+  fastIo;
 
-    string str;
+  string str;
 
-    cin >> str;
+  cin >> str;
 
-    for (auto a : str) {
+  for (auto a : str) {
+    cout << a - 'A' + 1 << " ";
+  }
 
-        cout << a - 'A' + 1 << " ";
-    }
-
-    return 0;
+  return 0;
 }
