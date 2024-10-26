@@ -1,8 +1,7 @@
-#include <algorithm>
+#include <cmath>
 #include <iostream>
-#include <set>
-#include <string>
 #include <vector>
+
 using namespace std;
 
 #define fastIo                                                                                                                                                 \
@@ -11,6 +10,8 @@ using namespace std;
     cout.tie(NULL);
 
 int t = 0;
+int tmp = 0;
+double total = 0;
 
 int main() {
     fastIo;
@@ -18,7 +19,12 @@ int main() {
     cin >> t;
 
     for (int i = 0; i < t; i++) {
-        cout << "#";
+        for (int j = 0; j < 10; j++) {
+            cin >> tmp;
+            total += tmp;
+        }
+        cout << "#" << i + 1 << " " << round(total / 10) << "\n";
+        total = 0;
     }
 
     return 0;
