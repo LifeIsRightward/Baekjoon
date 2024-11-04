@@ -10,16 +10,45 @@ using namespace std;
   cin.tie(NULL);                    \
   cout.tie(NULL);
 
+int n = 0;
+
+int contain(int arr[], int len, int n) {
+  for (int i = 0; i < len; i++) {
+    if (arr[i] == n) return i;
+  }
+  return -1;
+}
+
 int main() {
   fastIo;
 
-  string str;
+  cin >> n;
 
-  cin >> str;
-
-  for (auto a : str) {
-    cout << a - 'A' + 1 << " ";
+  int arr[n];
+  int sum = 0;
+  for (int i = 0; i < n; i++) {
+    arr[i] = i;
+    sum += i;
   }
+
+  arr[n - 1] += sum % n;
+  sum += sum % n;
+
+  int max = arr[n - 1];
+  while (contain(arr, n, sum / n) != -1) {
+    int index = contain(arr, n, sum / n);
+    while (arr[index] <= max) {
+      arr[index] += n;
+      sum += n;
+    }
+    max = arr[index];
+  }
+
+  int last = sum / n;
+  for (int i = 0; i < n; i++) {
+    cout << arr[i] << " ";
+  }
+  cout << last << "\n";
 
   return 0;
 }
