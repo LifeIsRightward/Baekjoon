@@ -69,6 +69,22 @@
     "set": "cpp",
     "memory_resource": "cpp",
     "utility": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "cfenv": "cpp",
+    "cinttypes": "cpp",
+    "condition_variable": "cpp",
+    "csetjmp": "cpp",
+    "csignal": "cpp",
+    "forward_list": "cpp",
+    "future": "cpp",
+    "iomanip": "cpp",
+    "list": "cpp",
+    "numeric": "cpp",
+    "random": "cpp",
+    "regex": "cpp",
+    "scoped_allocator": "cpp",
+    "typeindex": "cpp",
+    "unordered_set": "cpp",
+    "valarray": "cpp"
   }
 }
