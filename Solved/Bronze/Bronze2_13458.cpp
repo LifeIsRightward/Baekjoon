@@ -40,6 +40,8 @@ int main() {
       } else {
         cnt += tmp;
       }
+
+      //   이게 시간초과 난 코드
       //   while (true) {
       //     if (arr[i] <= 0) {
       //       break;
