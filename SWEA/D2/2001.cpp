@@ -1,55 +1,53 @@
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-#define fastIo                                                                                                                                                 \
-    ios_base::sync_with_stdio(false);                                                                                                                          \
-    cin.tie(NULL);                                                                                                                                             \
-    cout.tie(NULL);
+int testcase = 0;
+int n, m = 0;
+int cnt = 0;
+vector<int> vec;
 
 int main() {
-    fastIo;
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
 
-    int t = 0;
-    int n, m = 0;
-    int total = 0;
+  cin >> testcase;
 
-    cin >> t;
+  for (int i = 0; i < testcase; i++) {
+    cin >> n >> m;
 
-    for (int i = 0; i < t; i++) {
-        n, m, total = 0;
+    int arr[n][n];
 
-        cin >> n >> m;
-        int arr[n][n];
+    vec.clear();
 
-        // 배열 입력 받기
-        for (int j = 0; j < n; j++) {
-            for (int k = 0; k < n; k++) {
-                cin >> arr[j][k];
-            }
-        }
-
-        vector<int> vec;
-
-        int xpos, ypos = 0;
-
-        for (int i = xpos; i < n - m; i++) {
-        }
-
-        // for (int j = 0; j < n - m; j++) {
-        //     for (int q = j; q < j + m; q++) {
-        //         for (int f = j; f < j + m; f++) {
-        //             total += arr[q][f];
-        //         }
-        //     }
-        //     vec.push_back(total);
-        // }
-        // cout << *max_element(vec.begin(), vec.end()) << "\n";
+    // N by N 배열 입력 받기
+    for (int j = 0; j < n; j++) {
+      for (int q = 0; q < n; q++) {
+        cin >> arr[j][q];
+      }
     }
 
-    return 0;
+    for (int i = 0; i <= n - m; i++) {
+      for (int j = 0; j <= n - m; j++) {
+        for (int k = i; k < m + i; k++) {
+          for (int v = j; v < m + j; v++) {
+            cnt += arr[k][v];
+          }
+        }
+
+        vec.push_back(cnt);
+        cnt = 0;
+      }
+    }
+
+    int maxval = *max_element(vec.begin(), vec.end());
+    cout << "#" << i + 1 << " " << maxval << "\n";
+
+    // for (auto a : vec) {
+    //   cout << a << "\n";
+    // }
+  }
+
+  return 0;
 }
