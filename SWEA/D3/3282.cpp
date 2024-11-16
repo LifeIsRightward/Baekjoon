@@ -6,43 +6,46 @@ int testcase = 0;
 int n, k = 0;
 
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  cout.tie(NULL);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-  cin >> testcase;
+    cin >> testcase;
 
-  for (int i = 0; i < testcase; i++) {
-    cin >> n >> k;
+    for (int i = 0; i < testcase; i++) {
+        cin >> n >> k;
 
-    // dp[i][j] 부피가 j 이고, i번째 물건까지 고려했을 때의 최대 가치 합
-    int dp[101][101];
-    // 부피에 대한 배열
-    int w[101];
-    // 가치에 대한 배열
-    int c[101];
+        int product_kind_weight[101];
+        int product_value[101];
 
-    // 부피와 가치를 입력
-    for (int i = 1; i <= n; i++) {
-      cin >> w[i] >> c[i];
-    }
-
-    // 물건의 개수 만큼 돌거고
-    for (int i = 1; i <= n; i++) {
-      // 그 부피 만큼도 볼건데
-      for (int j = 1; j <= k; j++) {
-        // i 번째 물건이 정해진 부피인 j보다 크다면? -> 고려조차 할 수 없음
-        // 안 넣는 방법밖에 선택권이 없다면 이전에 구한 최댓값을 가져옴
-        // -> dp[i][j] = dp[i-1][j]
-        if (w[i] > j) {
-          dp[i][j] = dp[i - 1][j];
-        } else {
-          dp[i][j] = max(c[i] + dp[i - 1][j - w[i]], dp[i - 1][j]);
+        for (int u = 1; u <= n; u++) {
+            cin >> product_kind_weight[u] >> product_value[u];
         }
-      }
-    }
-    cout << "#" << i + 1 << " " << dp[n][k] << "\n ";
-  }
+        // 앞 -> 물건의 최대 종류, 뒤 -> 물건의 최대 부피로 초기화
+        // 즉, dp[i][j]는, i번째 물건까지 담고, j의 리미트 부피일때의 최대 가치 값
+        int dp[101][1001];
 
-  return 0;
+        // dp 배열 초기화
+        for (int j = 0; j <= n; j++) {
+            for (int q = 0; q <= k; q++) {
+                dp[j][q] = 0;
+            }
+        }
+
+        // 배낭 무게의 limit 1부터 결국 입력된 최대 배낭무게까지 돌아갈거임
+        for (int limit = 1; limit <= k; limit++) {
+            // 첫 번째 물품부터, 마지막 물품까지 돌면서, 해당 회차까지 물품이 들어간, limit 부피까지의 최대 가치 값
+            for (int row = 1; row <= n; row++) {
+                if (product_kind_weight[row] > limit) {
+                    dp[row][limit] = dp[row - 1][limit];
+                } else { // 내가 지금 들여보낼 물건 무게를 뺀 limit 무게에서의  이전 물건까지 본 녀석의 최대 밸류값 + 지금 들여보낼 물건의 가치 vs 이전 값
+                    dp[row][limit] = max(dp[row - 1][limit - product_kind_weight[row]] + product_value[row], dp[row - 1][limit]);
+                }
+            }
+        }
+
+        cout << "#" << i + 1 << " " << dp[n][k] << "\n";
+    }
+
+    return 0;
 }
