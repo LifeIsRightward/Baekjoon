@@ -23,7 +23,6 @@ int main() {
             plus = 0;
         } else {
             total += a;
-            plus = a;
             total += plus;
             plus++;
         }
